@@ -1,0 +1,28 @@
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content-area {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+/* Shift main-content when sidebar is closed */
+.content-area {
+  display: flex;
+  height: calc(100vh - 64px); /* header is 64px high */
+}
+.sidebar.closed {
+  transform: translateX(-240px);
+}
+.main-content {
+  flex: 1;
+  transition: margin-left 0.3s ease;
+  margin-left: 240px;
+  overflow-y: auto;
+}
+.sidebar.closed + .main-content {
+  margin-left: 0;
+}

@@ -1,0 +1,32 @@
+.dashboard {
+    flex: 1;
+    padding: 2rem;
+    display: grid;
+    gap: 1.5rem;
+    /* auto-fit cards, minimum 300px each */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    overflow-y: auto;
+  }
+  
+  .action-section {
+    text-align: center;
+  }
+  
+  .action-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* give each button a base color—we’ll refine later */
+  #btn-health  { background: #2196f3; color: white; }
+  #btn-import  { background: #4caf50; color: white; }
+  #btn-access  { background: #ff9800; color: white; }
+  
+  /* hover states */
+  .action-btn:hover {
+    opacity: 0.9;
+  }
+  

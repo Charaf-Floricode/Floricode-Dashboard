@@ -1,0 +1,104 @@
+.sidebar {
+    width: 240px;
+    background: var(--fc-surface);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    padding: 1.5rem 1rem;
+    overflow-y: auto;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  .sidebar.closed {
+    transform: translateX(-240px);
+  }
+  
+  .menu, .dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .menu-item > a {
+    display: block;
+    padding: 0.4rem 0.5rem;
+    margin-left: 0.5rem;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+    color: var(--fc-text);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  
+  .menu-item > a:hover {
+    background: rgba(156, 0, 0, 0.1);
+    border-color: var(--fc-primary);
+  }
+  
+  .menu-item > a.active {
+    border-color: var(--fc-primary-dark);
+    font-weight: 600;
+  }
+  .menu-item + .menu-item {
+    margin-top: 1rem;
+  }
+  
+  .dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--fc-text);
+    transition: background 0.2s;
+  }
+  .dropdown-header:hover {
+    background: rgba(156, 0, 0, 0.1);
+  }
+  
+  .chevron {
+    font-size: 0.8em;
+    transition: transform 0.2s;
+  }
+  .dropdown-header.open .chevron {
+    transform: rotate(90deg);
+  }
+  
+  .dropdown-list {
+    overflow: hidden;
+    padding-left: 1rem;
+  }
+  .submenu-item + .submenu-item {
+    margin-top: 0.25rem;
+  }
+  
+  .submenu-link {
+    display: block;
+    padding: 0.4rem 0.5rem;
+    margin-left: 0.5rem;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+    color: var(--fc-text);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .submenu-link:hover {
+    background: rgba(156, 0, 0, 0.1);
+    border-color: var(--fc-primary);
+  }
+  .submenu-link.active {
+    border-color: var(--fc-primary-dark);
+    font-weight: 600;
+  }
+  
+/* 1) Remove default link underline and blue focus ring */
+.sidebar a {
+    text-decoration: none;            /* no underline */
+    color: var(--fc-text);            /* your dark text color */
+    outline: none;                    /* remove default focus outline */
+  }
+  
+  /* 2) On hover, show your brand color, still no underline */
+  .sidebar a:hover {
+    color: var(--fc-primary-dark);
+    text-decoration: none;
+  }
+  
+ 

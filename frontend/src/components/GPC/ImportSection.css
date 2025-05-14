@@ -1,0 +1,10 @@
+/* src/components/HealthSection.css */
+.section-card {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .section-card h2 {
+    margin-top: 0;
+  }
+  
