@@ -1,8 +1,7 @@
-# netlify.toml
 
 [build]
   # install & build your CRA app
-  command   = "npm ci && npm run build && npm start"
+  command   = "npm run build"
   publish   = "build"
 
 # Ensure all paths serve index.html (for client‐side routing)
@@ -10,16 +9,3 @@
   from    = "/*"
   to      = "/index.html"
   status  = 200
-
-# ── Environment Variables ──────────────────────────────────────────
-
-# In production deploys use your real API:
-[context.production.environment]
-  REACT_APP_API_BASE = "https://api.yourdomain.com/v1/"
-
-# In branch deploys (e.g. PR previews) point at staging or localhost:
-[context.branch-deploy.environment]
-  REACT_APP_API_BASE = "https://staging-api.yourdomain.com/v1/"
-
-[context.deploy-preview.environment]
-  REACT_APP_API_BASE = "http://localhost:8000/v1/"
