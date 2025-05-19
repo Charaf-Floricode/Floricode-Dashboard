@@ -3,7 +3,6 @@ uvicorn[standard]
 pandas
 openpyxl
 pyodbc
-gunicorn
 python-dotenv
 requests
 openai
