@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pandas
+openpyxl
+pyodbc
+pywin32
+python-dotenv
+requests
+openai
