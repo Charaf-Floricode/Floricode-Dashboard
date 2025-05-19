@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Card.css';
-
+import { fetchHealth } from '../../services/api';
 export default function HealthSection() {
   const [status,setStatus] = useState(null);
   const [time,setTime]     = useState(null);
@@ -10,8 +10,7 @@ export default function HealthSection() {
     setLoading(true);
     setStatus(null);
     try {
-      const res  = await fetch('/health');
-      const json = res.ok ? await res.json() : Promise.reject(await res.text());
+      const json = await fetchHealth();
       setStatus(json.status);
       setTime(json.time);
     } catch(err) {

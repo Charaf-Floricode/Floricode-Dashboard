@@ -1,6 +1,7 @@
 // src/components/AccessSection.js
 import React, { useState } from 'react';
 import './Card.css';
+import {runAccess} from '../../services/api';
 
 export default function AccessSection() {
   const [message, setMessage] = useState(null);
@@ -8,14 +9,13 @@ export default function AccessSection() {
   const [debug,   setDebug]   = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const runAccess = async () => {
+  const runaccess = async () => {
     setLoading(true);
     setMessage(null);
     setZip(null);
     setDebug([]);
     try {
-      const res  = await fetch('/access/run-access', { method: 'POST' });
-      const json = await (res.ok ? res.json() : Promise.reject(await res.text()));
+      const json = await runAccess();
       setMessage(json.message);
       setZip(json.zip);
       setDebug(json.debug || []);
@@ -29,7 +29,7 @@ export default function AccessSection() {
   return (
     <div className="card">
       <h2>Access Export</h2>
-      <button onClick={runAccess} disabled={loading}>
+      <button onClick={runaccess} disabled={loading}>
         {loading ? 'Exporting…' : 'Run Access Export'}
       </button>
       {message && <p>{message}</p>}

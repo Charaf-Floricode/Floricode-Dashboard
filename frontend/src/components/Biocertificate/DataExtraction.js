@@ -1,6 +1,7 @@
 // src/components/ImportSection.js
 import React, { useState } from 'react';
 import './Card.css';
+import { bioCertificate } from '../../services/api';
 
 
 export default function Biocertification() {
@@ -15,8 +16,7 @@ export default function Biocertification() {
     setFile(null);
     setDebug([]);
     try {
-      const res  = await fetch('/biocertificate/scraper', { method: 'POST' });
-      const json = await (res.ok ? res.json() : Promise.reject(await res.text()));
+      const json = await bioCertificate();
       setMessage(json.message);
       setFile(json.file);
       setDebug(json.debug || []);

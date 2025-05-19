@@ -1,6 +1,7 @@
 // src/components/ImportSection.js
 import React, { useState } from 'react';
 import './Card.css';
+import {runImport} from '../../services/api'; 
 
 
 export default function ImportSection() {
@@ -9,14 +10,13 @@ export default function ImportSection() {
   const [debug,   setDebug]   = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const runImport = async () => {
+  const runimport = async () => {
     setLoading(true);
     setMessage(null);
     setFile(null);
     setDebug([]);
     try {
-      const res  = await fetch('/import/import-excel', { method: 'POST' });
-      const json = await (res.ok ? res.json() : Promise.reject(await res.text()));
+      const json = await runImport();
       setMessage(json.message);
       setFile(json.file);
       setDebug(json.debug || []);
@@ -30,7 +30,7 @@ export default function ImportSection() {
   return (
     <div className="card">
       <h2>Import Excel</h2>
-      <button onClick={runImport} disabled={loading}>
+      <button onClick={runimport} disabled={loading}>
         {loading ? 'Importing…' : 'Import Excel'}
       </button>
       {message && <p>{message}</p>}
